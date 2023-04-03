@@ -233,6 +233,46 @@ function intersect(list1, list2) {
   return returnArr */
 }
 
+function findNth(list, n) {
+  // Without Array
+  let tmp = list.head
+  let length = 0
+  while (tmp) {
+    length++
+    tmp = tmp.next
+  }
+
+  if (n > length || n < 0) {
+    return
+  }
+
+  tmp = list.head
+  while (length != n) {
+    tmp = tmp.next
+    length--
+  }
+
+  return tmp
+
+  // solving with Array
+  /* 
+  if (n < 0) {
+    return
+  }
+  let tmpArr = []
+  let tmp = list.head
+  while(tmp){
+    tmpArr.push(tmp.data)
+    tmp = tmp.next
+  }
+
+  if (n > tmpArr.length) {
+    return
+  }
+
+  return tmpArr[tmpArr.length - n] */
+}
+
 const ll = new LinkedList()
 const ll2 = new LinkedList()
 
@@ -246,6 +286,7 @@ ll.insertAtHead(7)
 
 // Insert at tail
 ll.insertAtTail(2)
+ll.insertAtTail(3)
 // ll.insertAtTail(2);
 
 // delete firstItem
@@ -276,4 +317,6 @@ ll2.insertAtHead(2)
 // console.log(union(ll, ll2))
 
 // intersection
-console.log(intersect(ll, ll2))
+// console.log(intersect(ll, ll2))
+
+console.log(findNth(ll, 4))
