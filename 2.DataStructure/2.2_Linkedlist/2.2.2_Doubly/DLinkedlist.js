@@ -107,8 +107,7 @@ class DoublelyLinkedList {
     }
 
     insertIndex(value, id) {
-
-        if (id > this.length - 1) {
+        if (id > this.length - 1 || id < 0) {
             console.log("can't insert")
             return
         }
@@ -118,13 +117,13 @@ class DoublelyLinkedList {
             return
         }
 
-        if (id === this.length -1) {
+        if (id === this.length - 1) {
             this.insertAtTail(value)
             return
         }
-        
+
         let validNth = this.findNth(id)
-        if(!validNth){
+        if (!validNth) {
             console.log("can't insert")
             return
         }
