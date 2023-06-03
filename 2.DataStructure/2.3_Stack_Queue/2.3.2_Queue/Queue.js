@@ -21,7 +21,7 @@ class Queue {
             this.head = newNode
             return
         }
-        
+
         this.head = this.tail = newNode
         return
     }
@@ -30,40 +30,46 @@ class Queue {
         return this.length
     }
 
-    peek(){
+    peek() {
         return this.tail.data
     }
 
-    deque(){
-        if(this.isEmpty()){
+    dequeue() {
+        if (this.isEmpty()) {
             return null
         }
         this.length--
         const newNode = new DNode(this.tail.data)
         this.tail = this.tail.prev
-        this.tail.next = null
+        if (this.tail) {
+            this.tail.next = null
+        } else {
+            this.head = this.tail
+        }
         return newNode.data
     }
 
-    printQueue(){
+    printQueue() {
         let tmp = this.tail
         let count = 1
-        while(tmp){
-            console.log(count + ".",tmp.data)
+        while (tmp) {
+            console.log(count + ".", tmp.data)
             tmp = tmp.prev
             count++
         }
     }
 }
 
-const queue = new Queue()
-queue.enqueue("Barko1")
-queue.enqueue("Barko2")
-queue.enqueue("Barko3")
-// console.log(queue.peek())
-// console.log(queue.deque())
-console.log(queue.size())
-console.log(queue.head)
-console.log("======================================================")
-console.log(queue.tail)
-queue.printQueue()
+// const queue = new Queue()
+// queue.enqueue("Barko1")
+// queue.enqueue("Barko2")
+// queue.enqueue("Barko3")
+// // console.log(queue.peek())
+// // console.log(queue.deque())
+// console.log(queue.size())
+// console.log(queue.head)
+// console.log("======================================================")
+// console.log(queue.tail)
+// queue.printQueue()
+
+module.exports = Queue
