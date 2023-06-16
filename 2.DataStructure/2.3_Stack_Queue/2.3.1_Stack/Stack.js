@@ -45,6 +45,8 @@ class Stack {
     }
 }
 
+module.exports = Stack
+
 // const ST = new Stack()
 // ST.push(1)
 // ST.push(2)
