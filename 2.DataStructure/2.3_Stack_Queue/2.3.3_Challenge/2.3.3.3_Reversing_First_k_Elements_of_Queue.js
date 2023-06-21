@@ -64,6 +64,31 @@ reverseK(queue, 5)
 
 queue.printQueue()
 
+// alternative
+// if (queue.isEmpty()){
+//     return
+// }
+
+// const tempStack = new Stack()
+// let count = 0
+// while (count < k){
+//     tempStack.push(queue.dequeue())
+//     count++
+// }
+
+// while(!tempStack.isEmpty()){
+//     queue.enqueue(tempStack.pop())
+// }
+
+// count = 0 
+// let remain = queue.size() - k
+// while(count < remain){
+//     queue.enqueue(queue.dequeue())
+//     count++
+// }
+
+// return queue;
+
 // Solution (less memory use)
 // function reverseK(queue, k) {
 //     if (queue.isEmpty() == false) {
